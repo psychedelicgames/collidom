@@ -1,0 +1,52 @@
+.canvas-container {
+	background-color: #353535;
+	position: absolute;
+	overflow: hidden;
+	top: 40px;
+	bottom: 40px;
+	width: 100%;
+	height: calc(100% - 80px);
+	display: none;
+	transition: all 2s;
+	z-index: 100;
+	.canvas-effects {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		opacity: 1;
+		z-index: 190;
+		pointer-events: none;
+	}
+	.canvas:focus {
+		outline: none !important;
+	}
+	#canvas {
+		background-color: #353535;
+		cursor: crosshair;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		z-index: 100;  
+	}
+}
+.canvas-overlay {
+	background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.3) 8%, rgba(0,0,0,1) 100%);
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.3) 8%,rgba(0,0,0,1) 100%);
+	background: radial-gradient(ellipse at center, rgba(0,0,0,0.3) 8%,rgba(0,0,0,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=1 );
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	opacity: 0;
+	z-index: 190;
+	pointer-events: none;
+	&.damaged {
+		background: -moz-radial-gradient(center, ellipse cover, rgba(228,9,9,.05) 67%,rgba(228,9,9,0.5) 100%);
+		background: -webkit-radial-gradient(center, ellipse cover, rgba(228,9,9,.05) 67%,rgba(228,9,9,0.5) 100%);
+		background: radial-gradient(ellipse at center, rgba(228,9,9,.05) 67%,rgba(228,9,9,0.5) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=1 );
+	}
+}

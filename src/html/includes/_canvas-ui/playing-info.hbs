@@ -1,0 +1,50 @@
+{{!-- player battle info --}}
+<div class="playing-footer-container">
+	<ul class="playing-info">
+		<li><img src="./img/canvas/game/ui/user-icon.png" style="height:14px;"><span class="user-name"></span></li>
+		<li><img src="./img/canvas/game/ui/kill-icon.png"><span class="user-kills"></span></li>
+		<li><img src="./img/canvas/game/ui/death-icon.png"><span class="user-deaths"></span></li>
+		<li><img src="./img/canvas/game/ui/spawn-icon.png"><span class="user-spawns"></span></li>
+		<li><i class="far fa-balance-scale x-color-green"></i> <span class="user-balance"></span></li>
+	</ul>
+	<div class="powerups-info">
+		<div class="title">
+			<div>
+				Available powerups <span> 5 </span>/ 5
+				<label>shift key to open</label>
+			</div>
+		</div>
+	</div>
+	<ul class="switch-container">
+		<li class="x-fadeIn btn-fullscreen"></li>
+		<li class="x-fadeIn btn-music"></li>
+	</ul>	
+</div>
+
+<!-- conversaciones -->
+<div class="playing-chat-container chat-container">
+	<ul class="chat-display">
+	</ul>
+</div>
+
+<!-- action container -->
+<div id="action-container" class="action-container" role="alert">
+	<img class="dead" src="./img/canvas/skull.png" />
+	<span class="line"></span>
+	<button class="btn dead btn-go-menu">go home</button>
+	<button id="ingame_respawn" class="btn dead">respawn</button>
+</div>
+
+<!-- developer mode -->
+<div id="developer-mode" class="developer-mode">
+	<table>
+		<caption style="visibility:hidden;">game['self']</caption>
+		<tbody id="developer_self">
+		</tbody>
+	</table>
+	<table>
+		<caption style="visibility:hidden;">game['self']['powerups']</caption>
+		<tbody id="developer_powerups">
+		</tbody>
+	</table>
+</div>

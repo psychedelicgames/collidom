@@ -1,0 +1,44 @@
+<div class="menu-right">
+	{{!-- kar leaderboard --}}
+	<div class="avatar-container user-online">
+		{{!-- 	<div class="image">
+				<img src="../img/avatar.png">
+			</div> --}}
+		<div class="info">
+{{!-- 			<div class="name">
+				<i class="fas fa-user"></i><span class="username"></span>
+				<i class="far fa-balance-scale x-color-green"></i><span class="user-balance"></span>
+			</div> --}}
+			{{!-- <img class="line" src="../img/line-ll.png"> --}}
+			<div class="stats">
+				<ul>
+					{{!-- <li data-toggle="tooltip" data-placement="bottom" title="status"><i class="fas fa-circle"></i><span class="user-status"></span></li> --}}
+					<li data-toggle="tooltip" data-placement="bottom" title="username" class="name"><i class="fas fa-user"></i><span class="user-name"></span></li>
+					<li data-toggle="tooltip" data-placement="bottom" title="kills"><img src="./img/canvas/game/ui/kill-icon.png"><span class="user-kills"></span></li>
+					<li data-toggle="tooltip" data-placement="bottom" title="deaths"><img src="./img/canvas/game/ui/death-icon.png"><span class="user-deaths"></span></li>
+					<li><i data-toggle="tooltip" data-placement="bottom" title="spawns" class="fas fa-sync-alt"></i><span class="user-spawns"></span></li>
+					<li data-toggle="tooltip" data-placement="bottom" title="bits"><i class="far fa-balance-scale"></i><span id="user-balance" class="user-balance"></span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	{{!-- kard chat --}}
+	<div class="kard k-small chat">
+		<div class="kard-info">
+			<div class="kard-body">
+				<div class="container">
+					<div class="row">
+						<div class="chat-title">
+							<i class="fas fa-comments"></i> Live chat
+						</div>
+						<div class="small-chat-container">
+							<ul class="chat-display">
+							</ul>
+						</div>
+						<input id="chat-input" class="chat-input user-online x-fadeIn user-online" type="text" placeholder="Press Enter to send" name="chat" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

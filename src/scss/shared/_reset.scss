@@ -1,0 +1,77 @@
+table td {
+    padding: 7px !important;
+}
+*::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+thead {
+	background-color: #090b0c;
+	tr {
+		padding: 2px 4px;
+	}
+}
+.col-12 {
+	padding-left:0px !important;
+	padding-right:0px !important; 
+}
+.highcharts-xaxis, .highcharts-axis-labels {
+	display: none;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #666;
+  outline: 1px solid slategrey;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: $color-one;
+  outline: 1px solid slategrey;
+}
+ *::-webkit-scrollbar {
+    width: 2px;
+}
+*:not(.selectable) {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+img {
+  pointer-events: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.selectable, p, .chat-display li, .chat-display li span {
+	-webkit-touch-callout: all !important;
+	-webkit-user-select: all !important;
+	-khtml-user-select: all !important;
+	-moz-user-select: all !important;
+	-ms-user-select: all !important;
+	user-select: all !important;
+}
+input {
+	-webkit-touch-callout: all !important;
+	-webkit-user-select: all !important;
+	-khtml-user-select: all !important;
+	-moz-user-select: all !important;
+	-ms-user-select: all !important;
+	user-select: all !important;
+	display: block !important;
+	z-index: 999 !important
+}
+@include desktop {
+	.modal-lg {
+		width: 90% !important;
+	    max-width: 1250px !important;
+	}
+}
+@include desktop-large {
+	.modal-lg {
+		width: 90% !important;
+	    max-width: 1250px !important;
+	}
+}

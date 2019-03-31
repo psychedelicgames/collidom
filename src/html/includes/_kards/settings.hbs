@@ -1,0 +1,118 @@
+<!-- Modal Settings -->
+<div id="kard-settings" class="kard-modal kard-settings">
+	<div class="kard">
+		<div class="kard-info">
+			<div class="kard-header">
+				<h5 class="kard-title cashier-tabs tab-title">Settings
+						<ul>
+							<li class="active" data-tab-link="0">Options</li>
+							<li data-tab-link="1">2FA</li>
+						</ul>
+					</h5>
+			</div>
+			<div class="kard-body">
+				<div class="container">
+					<div class="x-padding-sm"></div>
+					<div class="custom-tabs">
+
+						{{!-- vamos cambiando --}}
+						<div id="kard-settings-ux" class="active" data-tab="0">
+							<div class="row">
+								<div class="col-12">
+									<table class="table table-striped">
+										<tbody>
+											<tr>
+												<td>Activate developer's info while playing</td>
+												<td>
+													<div class="switch">
+														<i id="developer-switch" class="fal fa-square"></i>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>Rain</td>
+												<td>
+													<div class="switch">
+														<i id="rain-switch" class="fal fa-check-square"></i>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>Playing music</td>
+												<td>
+													<div class="switch">
+														<i class="fal fa-check-square music-settings-switch"></i>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>Menu music</td>
+												<td>
+													<div class="switch">
+														<i class="fal fa-check-square menu-music-settings-switch"></i>
+													</div>
+												</td>
+											</tr>											
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						{{!-- hasta aca --}}
+
+						{{!-- vamos cambiando --}}
+						<div id="kard-settings-2fa" data-tab="1">
+							<div class="row">
+								<div class="col-xl-6">
+									<div class="row mb-4">
+										<div id="qrcode_mfa"></div>
+									</div>
+									<div class="row">
+										<h5 class="kard-subtitle">Having Issues? <span id="user-mfa-recover" class="x-color-one"></span></h5>
+									</div>
+								</div>
+								<div class="col-xl-6">
+									<div class="row mb-4">
+										<p>
+											Scan the QR code with your authenticator app, we recommend Authenticator. In case you have any problem with the code, you can manually enter the secret shown.
+										</p>
+										<p>
+											Once your phone is syncronized, please complete the form with your username, password and the provided time based token.
+										</p>
+									</div>
+									<div class="row mb-4">
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<span class="input-group-text"><i class="fas fa-user-plus"></i></span>
+											</div>
+											<input id="2fa-username" type="text" class="form-control" placeholder="username" aria-label="username">
+										</div>
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<span class="input-group-text"><i class="fas fa-key"></i></span>
+											</div>
+											<input id="2fa-password" type="password" class="form-control" placeholder="password" aria-label="password">
+										</div>
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<span class="input-group-text"><i class="fas fa-lock"></i></span>
+											</div>
+											<input id="user-mfa-code" type="text" class="form-control" placeholder="multifactor" aria-label="multifactor">
+										</div>
+										<div class="x-padding-xs"></div>
+										<button id="user-mfa-enable" type="button" class="btn btn-custom-one">submit</button>
+									</div>
+								</div>
+							{{!-- 	<div class="kard-footer">
+									<button id="user-mfa-enable" type="button" class="btn btn-custom-one">submit</button>
+								</div> --}}
+							</div>
+						</div>
+						{{!-- hasta aca --}}
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
