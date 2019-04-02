@@ -14,23 +14,17 @@
 	display: none;
 }
 section.menu {
-	z-index: 500;
-	height: 70vh;
-	width: 90vw;
-	max-width: 1200px;
-	max-height: 700px;
+	z-index: 600;
+	height: 100vh;
+	width: 100vw;
 	display: flex;
 	justify-content: space-around;
 	margin: 0 auto;
-	// margin-top: 22vh;
-	// position: relative;
 	position: absolute;
 	left: 0px;
 	right: 0px;
-	top: 22%;
-	box-shadow: 0 3px 140px #000;
+	top: 0px;
 	// background-color: #0b0f11;
-	z-index: 210;
 	&.menu-on {
 		opacity: 1 !important;
 		pointer-events:all !important;
@@ -74,31 +68,21 @@ section.menu {
     z-index: 201;
 	@include menu-left {
 		max-width: 60px;
-	}
-	@media screen and (max-height: 750px) {
-		ul {
-			padding-top: 20% !important;
-		}
-	}
-	@media screen and (max-height: 550px) {
-		ul {
-			padding-top: 2% !important;
-		}
 	}	
 	ul {
 		list-style: none;
 		padding: 0px;
-		padding-top: 40%;
+		padding-top: 20vh;
 		border-top: 1px solid #14181a;
 			-webkit-transition: all 0.2s;
 				transition: all 0.2s;		
 		li {
 			a {
-				font-size: 14px;
+				font-size: 16px;
 				color: $color-white;
-				line-height: 38px;
-				padding-left: 46px;
-				height: 38px;
+				line-height: 50px;
+				padding-left: 15px;
+				height: 50px;
 				border-bottom: 1px solid #14181a;
 				display: block;
 				position: relative;
@@ -116,9 +100,7 @@ section.menu {
 					border-left: 5px solid $color-one;
 				}
 				i {
-					position: absolute;
-					left: 20px;
-					top: 12px;
+					width: 30px;
 				}
 				@include menu-left {
 					padding-left: 3px;

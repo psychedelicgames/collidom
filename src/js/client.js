@@ -7,7 +7,7 @@ $(document).ready(function() {
 	 }
 
 	 //conservar como variable principal y hacer que se pueda remplazar desde el menu
-	 var server = 'wss://192.168.0.8';
+	 var server = 'wss://clouds.bitofwar.com';
 
 	//definimos lo que hay que definir
 	var socket = io(server); //hello
