@@ -175,12 +175,7 @@ $(document).ready(function() {
 		$('.chat-display').height(chatSize);
 	});
 
-	// background body change
-	setInterval(function() {
-		var items = [1,2,3];
-		var item = items[Math.floor(Math.random()*items.length)];
-			$('body').attr({'style' : 'background-image: url("../img/menu/0' + item + '.png");'});
-	}, 5000);
+
 
 	var brand_top = $('.brand').offset().top;
 	var brand_height = $('.brand').height();
@@ -301,6 +296,14 @@ $(document).ready(function() {
 		//for each kard
 		if (kard == 'new-user') {
 			$('#name-input').focus();
+		}	
+		if (kard == 'games') {
+				// background body change
+			setInterval(function() {
+				var items = [2,3,1];
+				var item = items[Math.floor(Math.random()*items.length)];
+					$('.kard-games').attr({'style' : 'background-image: url("../img/games/bow/bkg0' + item + '.jpg"); opacity: 1; display: block;'});
+			}, 5000);
 		}
 		if (kard == 'leaderboard') {
 			leaderboard_view(0, 50);
@@ -335,13 +338,13 @@ $(document).ready(function() {
 		// manage show and hide kards
 		if ( $('.kard-' + kard).css('display') == 'none' ) {
 			// take out the actual section
-			TweenMax.staggerTo('.kard-modal.show',1.2, {opacity: 1, top: '100%', ease: Elastic.easeOut.config(1, 1), onComplete: outShow(), });
+			TweenMax.staggerTo('.kard-modal.show',1.2, {opacity: 1, ease: Elastic.easeOut.config(1, 1), onComplete: outShow(), });
 			TweenMax.staggerTo('.kard-modal.show', 0.1, {display: 'none', className: '-=show', });
 
 			function outShow() {
 				// take in the selected section
-				TweenMax.set('#kard-' + kard  + '.kard-modal', {opacity: 0, top: '-100%', });
-				TweenMax.staggerTo('#kard-' + kard  + '.kard-modal',1.2, {opacity: 1, top: '0%', display: 'block', ease: Elastic.easeOut.config(1, 1), className: '+=show', });
+				TweenMax.set('#kard-' + kard  + '.kard-modal', {opacity: 0, });
+				TweenMax.staggerTo('#kard-' + kard  + '.kard-modal',1.2, {opacity: 1, display: 'block', ease: Elastic.easeOut.config(1, 1), className: '+=show', });
 			};
 		}
 	}
@@ -439,7 +442,7 @@ $(document).ready(function() {
 				Cookies.set('playing_rain', 'on');
 
 				//send to online players menu
-				menu_manager('online-players');
+				menu_manager('games');
 				//set user status
 				user_status();
 				user_stats();
@@ -579,7 +582,7 @@ $(document).ready(function() {
 			$(".user-offline").css({ "display": "inherit" });
 			$('.btn-respawn').css({'display': 'none'});
 			//send user to new-user kard
-			menu_manager('new-user');
+			menu_manager('games');
 			Cookies.set('user_logued', 'False');
 		}
 	}
@@ -1810,7 +1813,7 @@ $(document).ready(function() {
 		KilledSequence(null, 'respawn');
 		$('#canvas').css({ 'filter': 'grayscale(0%) contrast(100%)','-webkit-filter': 'grayscale(0%) contrast(100%)'});
 		$('.btn-respawn').css({'display': 'inline-block'});
-		menu_manager('online-players');
+		menu_manager('games');
 		manage_music_menu();
 		user_status();
 	}
