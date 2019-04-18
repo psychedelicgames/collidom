@@ -28,9 +28,10 @@ $(document).ready(function() {
 	sound_menu_ambient.volume = 0.5;
 	sound_menu_ambient.autoPlay = true;
 	sound_menu_ambient.loop = true;
-	sound_menu_ambient.preLoad = false;
+	sound_menu_ambient.preLoad = true;
 	sound_menu_ambient.controls = false;
-	sound_menu_ambient.currentTime = 1;
+
+	sound_menu_ambient.play();
 
 	//sound menu click
 	var sound_menu_click = document.createElement("audio");
@@ -175,7 +176,12 @@ $(document).ready(function() {
 		$('.chat-display').height(chatSize);
 	});
 
-
+	// background body change
+	setInterval(function() {
+		var items = [1,2,3];
+		var item = items[Math.floor(Math.random()*items.length)];
+			$('body').attr({'style' : 'background-image: url("../img/menu/0' + item + '.png");'});
+	}, 5000);
 
 	var brand_top = $('.brand').offset().top;
 	var brand_height = $('.brand').height();
@@ -296,14 +302,6 @@ $(document).ready(function() {
 		//for each kard
 		if (kard == 'new-user') {
 			$('#name-input').focus();
-		}	
-		if (kard == 'games') {
-				// background body change
-			setInterval(function() {
-				var items = [2,3,1];
-				var item = items[Math.floor(Math.random()*items.length)];
-					$('.kard-games').attr({'style' : 'background-image: url("../img/games/bow/bkg0' + item + '.jpg"); opacity: 1; display: block;'});
-			}, 5000);
 		}
 		if (kard == 'leaderboard') {
 			leaderboard_view(0, 50);
@@ -338,13 +336,13 @@ $(document).ready(function() {
 		// manage show and hide kards
 		if ( $('.kard-' + kard).css('display') == 'none' ) {
 			// take out the actual section
-			TweenMax.staggerTo('.kard-modal.show',1.2, {opacity: 1, ease: Elastic.easeOut.config(1, 1), onComplete: outShow(), });
+			TweenMax.staggerTo('.kard-modal.show',1.2, {opacity: 1, top: '100%', ease: Elastic.easeOut.config(1, 1), onComplete: outShow(), });
 			TweenMax.staggerTo('.kard-modal.show', 0.1, {display: 'none', className: '-=show', });
 
 			function outShow() {
 				// take in the selected section
-				TweenMax.set('#kard-' + kard  + '.kard-modal', {opacity: 0, });
-				TweenMax.staggerTo('#kard-' + kard  + '.kard-modal',1.2, {opacity: 1, display: 'block', ease: Elastic.easeOut.config(1, 1), className: '+=show', });
+				TweenMax.set('#kard-' + kard  + '.kard-modal', {opacity: 0, top: '-100%', });
+				TweenMax.staggerTo('#kard-' + kard  + '.kard-modal',1.2, {opacity: 1, top: '0%', display: 'block', ease: Elastic.easeOut.config(1, 1), className: '+=show', });
 			};
 		}
 	}
@@ -442,7 +440,7 @@ $(document).ready(function() {
 				Cookies.set('playing_rain', 'on');
 
 				//send to online players menu
-				menu_manager('games');
+				menu_manager('online-players');
 				//set user status
 				user_status();
 				user_stats();
@@ -582,7 +580,7 @@ $(document).ready(function() {
 			$(".user-offline").css({ "display": "inherit" });
 			$('.btn-respawn').css({'display': 'none'});
 			//send user to new-user kard
-			menu_manager('games');
+			menu_manager('new-user');
 			Cookies.set('user_logued', 'False');
 		}
 	}
@@ -877,7 +875,7 @@ $(document).ready(function() {
 				$('#canvas-container').css({'display': 'block'});
 				$('body').addClass('playing');
 				$('.btn-respawn').css({'display': 'none'});
-				$('.powerups-info .title span').text('3');
+				$('.powerups-info .title span').text('5');
 
 				menu_switch();
 				player_hub();
@@ -1389,6 +1387,16 @@ $(document).ready(function() {
 			b = a - 100;
 			c = (7 - hub_usuario.health + 100);
 			$('#canvas').css({ 'filter': 'grayscale(' + b + '%) contrast(' + c + '%)','-webkit-filter': 'grayscale(' + b + '%) contrast(' + c + '%)'});
+			
+			//av en llamas
+			if (hub_usuario.health <= 5 ) {
+				$('#av_fire').css({opacity: '1'})
+				$('#av_plain').css({opacity: '0'})
+			}
+			else {
+				$('#av_plain').css({opacity: '1'})
+				$('#av_fire').css({opacity: '0'})
+			}
 
 			//hacer sonido de explosion
 			if (hub_usuario.health <= 0 ) {
@@ -1665,7 +1673,7 @@ $(document).ready(function() {
 					// var difference_sum = feedback.xfers[i]['difference_sum'];
 					// var raw_difference_sum = difference_sum.replace("-", "");
 
-					row += '<td>falta api</td>';
+					//row += '<td>falta api</td>';
 
 					// if (feedback.xfers[i]['difference_sum'] < 0) {
 					// 	row += '<td><i class="far fa-minus x-color-one"></i> ' + raw_difference_sum + '</td>';
@@ -1674,7 +1682,7 @@ $(document).ready(function() {
 					// 	row += '<td><i class="far fa-plus x-color-green"></i> ' + raw_difference_sum + '</td>';
 					// }
 
-					// row += '<td>' + feedback.xfers[i]['creacion'] + '</td>';
+					//row += '<td>' + feedback.xfers[i]['creacion'] + '</td>';
 					row += '</tr>';
 				}
 				// console.log(row);
@@ -1813,7 +1821,7 @@ $(document).ready(function() {
 		KilledSequence(null, 'respawn');
 		$('#canvas').css({ 'filter': 'grayscale(0%) contrast(100%)','-webkit-filter': 'grayscale(0%) contrast(100%)'});
 		$('.btn-respawn').css({'display': 'inline-block'});
-		menu_manager('games');
+		menu_manager('online-players');
 		manage_music_menu();
 		user_status();
 	}
@@ -1875,15 +1883,33 @@ $(document).ready(function() {
 					$('.powerups-container').removeClass('active');
 				}
 				if(keydown == '50') {
+					rand = sounds_order_2.rand(); sounds[rand].play();
+					show_upper_message('There’s nothing faster than Assassin MK1!');
+					powerup_counter	('order_power_2');
+					$('.powerups-container').removeClass('active');
+				}
+				if(keydown == '51') {
+					rand = sounds_order_3.rand(); sounds[rand].play();
+					show_upper_message('Vladof relics 1.0  more bullets, more kills!');
+					powerup_counter	('order_power_3');
+					$('.powerups-container').removeClass('active');
+				}
+				if(keydown == '52') {
 					rand = sounds_order_4.rand(); sounds[rand].play();
 					show_upper_message('You are 1.666 times lighter with Moonwalk!');
 					powerup_counter	('order_power_4');
 					$('.powerups-container').removeClass('active');
 				}
-				if(keydown == '51') {
+				if(keydown == '53') {
 					rand = sounds_order_5.rand(); sounds[rand].play();
 					show_upper_message('The Slow company loves you.');
 					powerup_counter	('order_power_5');
+					$('.powerups-container').removeClass('active');
+				}
+				if(keydown == '54') {
+					rand = sounds_order_6.rand(); sounds[rand].play(); console.log(rand);
+					show_upper_message("Providing healing. We're killing you slowly");
+					powerup_counter	('order_power_6');
 					$('.powerups-container').removeClass('active');
 				}
 			}
@@ -1906,6 +1932,18 @@ $(document).ready(function() {
 		order_power('51');
 		$('#canvas').focus();
 	});
+	$('#order_power_4').click(function() {
+		order_power('52');
+		$('#canvas').focus();
+	});
+	$('#order_power_5').click(function() {
+		order_power('53');
+		$('#canvas').focus();
+	});
+	$('#order_power_6').click(function() {
+		order_power('54');
+		$('#canvas').focus();
+	});
 
 
 	/************************************************************/
@@ -1915,16 +1953,28 @@ $(document).ready(function() {
 	$('#canvas').keydown(function(e) {
 
 		switch(e.which) {
-			//'1' buy shield
+			//'1' para comprar 'shield'
 			case 49:
 			order_power(e.which);
 			break;
-			//'2' buy speed
+			//'2' para comprar 'quickfire'
 			case 50:
 			order_power(e.which);
 			break;
-			//'3' buy slowco
+			//'3' para comprar 'peacemaker'
 			case 51:
+			order_power(e.which);
+			break;
+			//'4' para comprar 'moonwalker'
+			case 52:
+			order_power(e.which);
+			break;
+			//'5' slowco
+			case 53:
+			order_power(e.which);
+			break;
+			//'6' healco
+			case 54:
 			order_power(e.which);
 			break;
 			// show poweups
