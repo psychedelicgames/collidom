@@ -180,7 +180,7 @@ $(document).ready(function() {
 	setInterval(function() {
 		var items = [1,2,3];
 		var item = items[Math.floor(Math.random()*items.length)];
-			$('.kard-games').attr({'style' : 'background-image: url("../img/games/bow/bkg0' + item + '.jpg");'});
+			$('.kard-games .kard').attr({'style' : 'background-image: url("../img/games/bow/bkg0' + item + '.jpg");'});
 	}, 5000);
 
 	var brand_top = $('.brand').offset().top;
@@ -336,13 +336,13 @@ $(document).ready(function() {
 		// manage show and hide kards
 		if ( $('.kard-' + kard).css('display') == 'none' ) {
 			// take out the actual section
-			TweenMax.staggerTo('.kard-modal.show',1.2, {opacity: 0, ease: Power4.easeOut, onComplete: outShow(), });
-			TweenMax.staggerTo('.kard-modal.show', 0.1, {display: 'none', className: '-=show', });
+			TweenMax.staggerTo('.kard-modal.show',1, {opacity: 0, ease: Power4.easeOut, onComplete: outShow(), });
 
 			function outShow() {
+				TweenMax.set('.kard-modal.show', {display: 'none', className: '-=show', });
 				// take in the selected section
 				TweenMax.set('#kard-' + kard  + '.kard-modal', {opacity: 0, });
-				TweenMax.staggerTo('#kard-' + kard  + '.kard-modal',1.2, {opacity: 1, display: 'block', ease: Power4.easeOut, className: '+=show', });
+				TweenMax.staggerTo('#kard-' + kard  + '.kard-modal',3, {opacity: 1, display: 'block', ease: Power4.easeOut, className: '+=show', });
 			};
 		}
 	}

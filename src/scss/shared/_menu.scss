@@ -673,10 +673,9 @@ section.menu {
 	}
 }
 #qrcode_personal_address {
-
 	canvas {
-			background-color: #fff;
-	padding: 5px;
+		background-color: #fff;
+		padding: 5px;
 		width: 100%;
 		max-width: 256px;
 	}
@@ -705,7 +704,7 @@ section.menu {
 
 
 
-.kard-games {
+.kard-games .kard {
 	background-image: url("../img/games/bow/bkg02.jpg");
 	background-repeat: no-repeat;
 	background-position: right top;
