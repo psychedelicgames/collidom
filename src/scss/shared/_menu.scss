@@ -310,7 +310,6 @@ section.menu {
 	}
 	&.kard-chat {
 		height: 100%;
-
 	}
 	&.kard-cashier {
 		.fa-copy {
@@ -707,10 +706,10 @@ section.menu {
 
 
 .kard-games {
-	background-image: url("../img/games/bow/bkg2.jpg");
+	background-image: url("../img/games/bow/bkg02.jpg");
 	background-repeat: no-repeat;
 	background-position: right top;
-	background-size: contain;
+	// background-size: contain;
 	transition: background-image 1s;
 }
 
