@@ -577,7 +577,7 @@ $(document).ready(function() {
 		else {
 			//change on the ui
 			$(".user-online").css({ "display": "none" });
-			$(".user-offline").css({ "display": "inherit" });
+			$(".user-offline").removeAttr('style');
 			$('.btn-respawn').css({'display': 'none'});
 			//send user to new-user kard
 			menu_manager('new-user');

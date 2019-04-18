@@ -66,6 +66,7 @@ section.menu {
 	height: 100%;
     overflow-y: auto;
     z-index: 201;
+    overflow-x: hidden;
 	@include menu-left {
 		max-width: 60px;
 	}	
@@ -268,7 +269,32 @@ section.menu {
 		// }
 	}
 }
-
+.stats ul {
+	margin-bottom: 0px !important;
+	padding: 0px;
+	width: 120%;
+	overflow-x: auto;
+	color: #fff;
+	li {
+		display: inline-block !important;
+		list-style: none;
+		margin-right: 10px;
+		// font-size: 14px;
+		.fa-circle {
+			font-size: 10px;
+			margin-right: 5px;
+		}
+		img {
+			height: 16px;
+			margin-right: 4px;
+			vertical-align: middle;
+		}
+		i {
+			margin-right: 4px;
+			font-size: 15px;
+		}
+	}
+}
 
 /* ======================================
   Menu content
