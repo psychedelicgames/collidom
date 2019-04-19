@@ -1192,18 +1192,18 @@ TweenMax.to('.s-preloader', 0, {delay: 6, css: {'display': 'none'}, });
 
 				//solo cambiar la información si no hay información, o si la información es nueva.
 				if ($('.user-name').text == null || $('.user-name').text != playing_info.name) { $('.user-name').text(playing_info.name); }
-				//var kills = $('.user-kills').text;
-				//console.log(kills.text);
-				//if ($('.user-name').text != playing_info.name ) { $('.user-name').text(playing_info.name); }
-				//if (kills.text !== playing_info.kills ) { console.log('vamos'); kills.text(playing_info.kills); }
-				//if ($('.user-deaths').text != playing_info.deaths ) { $('.user-deaths').text(playing_info.deaths); }
-				//if ($('.user-spawns').text != playing_info.spawns ) { $('.user-spawns').text(playing_info.spawns); }
-				//if ($('.user-balance').text != playing_info.balance ) { $('.user-balance').text(playing_info.balance); }
-				// $('.user-name').text(playing_info.name);
-				// $('.user-kills').text(playing_info.kills);
-				// $('.user-deaths').text(playing_info.deaths);
-				// $('.user-spawns').text(playing_info.spawns);
-				// $('.user-balance').text(playing_info.balance);
+				var kills = $('.user-kills').text;
+				console.log(kills.text);
+				if ($('.user-name').text != playing_info.name ) { $('.user-name').text(playing_info.name); }
+				// if (kills.text !== playing_info.kills ) { console.log('vamos'); kills.text(playing_info.kills); }
+				if ($('.user-deaths').text != playing_info.deaths ) { $('.user-deaths').text(playing_info.deaths); }
+				if ($('.user-spawns').text != playing_info.spawns ) { $('.user-spawns').text(playing_info.spawns); }
+				if ($('.user-balance').text != playing_info.balance ) { $('.user-balance').text(playing_info.balance); }
+				$('.user-name').text(playing_info.name);
+				$('.user-kills').text(playing_info.kills);
+				$('.user-deaths').text(playing_info.deaths);
+				$('.user-spawns').text(playing_info.spawns);
+				$('.user-balance').text(playing_info.balance);
 			}
 		}
 
