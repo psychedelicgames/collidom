@@ -15,6 +15,47 @@ body {
 	box-sizing: border-box;
 	background-color: #000 !important;
 }
+@include only-mobile {
+	* {
+		overflow-x: hidden !important
+	}
+}
+#mobile-advice {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: none;
+	background-color: #000;
+	color: #fff;
+	z-index: 999;
+	div {
+		text-align: center;
+		margin: 40vw 6vw 20vw 6vw;
+		img {
+			margin-bottom: 5vh;
+			width: 60%;
+		}
+		h4 {
+			color: $color-one;
+			font-weight: bold
+		}
+		input {
+			text-align: center;
+			color: #fff;
+			width: 100%;
+			background-color: rgba(255,255,255,0.2);
+			padding: 2%;
+			margin-top: 5vh;
+			margin-bottom: 2vh;
+		}
+	}
+	@include only-mobile {
+		display: block;
+	}	
+}
 .fa-circle {
 	font-size: 9px;
 	// margin-right: 5px;
