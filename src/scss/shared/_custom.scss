@@ -9,15 +9,11 @@ html {
 	width: 100vw;
 }
 body {
-	background-image: url("../img/menu/01.png");
-	background-size: cover;
 	overflow: hidden;
 	height: 100vh;
 	width: 100vw;
 	box-sizing: border-box;
-	background-color: #3e3e3e;
-	-webkit-transition: background-image 0.5s ease-in-out;
-	transition: background-image 0.5s ease-in-out;
+	background-color: #000 !important;
 }
 .fa-circle {
 	font-size: 9px;
@@ -39,6 +35,66 @@ body {
     	margin-left: -80px;
     	max-width: 720px;
     }
+}
+.s-preloader {
+	z-index: 900;
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+	background-image: url("../img/body-bkg.jpg");
+	background-size: cover;
+	.content {
+		transform: translateX(-50%) translateY(-50%);
+		position: absolute;
+		top: 45%;
+		left: 50%;
+		text-align: center;
+		.logo {
+			margin-top: 10px;
+			margin-bottom: 10px;
+			opacity: 0;
+			width: 100%;
+		}
+		.progress-wrap {
+			background: $color-one-dark;
+			height: 5px;
+			width: 100%;
+			margin: 1.7vh 0px;
+			overflow: hidden;
+			position: relative;
+			opacity: 0;
+			.progress-bar {
+				height: 5px;
+				background: $color-one;
+				left: 0;
+				position: absolute;
+				top: 0;
+			}
+		}	
+		.welcome {
+			margin-top: 10px;
+			color: $color-white;
+			font-size: 25px;
+			font-weight: 200;
+			opacity: 0;
+		}
+	}
+	@include only-mobile {
+		.content {
+			width: 80%;
+		}
+		.logo {
+			width: 80% !important;
+		}
+		.progress-wrap {
+			width: 70% !important;
+			margin: 10vh auto !important; 
+		}
+		.welcome {
+			font-size: 20px !important;
+			line-height: 24px;
+		}
+	}
 }
 .border-div {
 	border-top: 1px solid #1e2325;
@@ -78,7 +134,7 @@ section.header {
 	flex-flow: row wrap;
 	justify-content: space-between;
 	position: absolute;
-	top: 0px;
+	top: -39px;
 	left: 0px;
 	right: 0px;
 	z-index: 500;

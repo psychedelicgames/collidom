@@ -1,14 +1,15 @@
 .canvas-container {
 	background-color: #353535;
 	position: absolute;
-	overflow: hidden;
-	top: 40px;
-	bottom: 40px;
+	// overflow: hidden;
+	top: 0px;
+	bottom: 0px;
 	width: 100%;
 	height: calc(100% - 80px);
 	display: none;
 	transition: all 2s;
 	z-index: 100;
+	margin-top: 40px;
 	.canvas-effects {
 		position: absolute;
 		width: 100%;
@@ -28,7 +29,8 @@
 		top: 50%;
 		-webkit-transform: translate(-50%, -50%);
 		transform: translate(-50%, -50%);
-		z-index: 100;  
+		z-index: 100;
+		margin-bottom: 80px;
 	}
 }
 .canvas-overlay {

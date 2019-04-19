@@ -37,14 +37,14 @@
 		{{!-- header include --}}
 
 		{{!-- interface include --}}
-		{{> includes/_layout/header }}
+		{{> includes/_layout/preloader }}
 		{{> includes/_layout/ui }}
 
 		{{!-- menu --}}
-		<div class="brand"><img src="./img/brand_hd.png"></div>
+		{{!-- <div class="brand"><img src="./img/brand_hd.png"></div> --}}
 		<section id="menu" class="menu">
 			{{> includes/_layout/menu_left }}
-			<div class="menu-center">
+			<div class="menu-center f-l-m">
 				{{!-- kards include --}}
 				{{> includes/_kards/new-user }}
 				{{> includes/_kards/disconnect }}
@@ -63,11 +63,13 @@
 				{{> includes/_kards/feedback }}
 			</div>
 			{{> includes/_layout/menu_right }}
+			<div class="menu-overlay"></div>
 		</section>
-		<div class="menu-overlay"></div>
+		
 
 		{{!-- game itself --}}
 		<section id="canvas-container" class="canvas-container">
+			{{> includes/_layout/header }}
 			<div class="canvas-overlay"></div>
 			{{> includes/_canvas-ui/player-hub }}
 			{{> includes/_canvas-ui/powerups-container }}

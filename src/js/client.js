@@ -183,11 +183,11 @@ $(document).ready(function() {
 			$('.kard-games .kard').attr({'style' : 'background-image: url("../img/games/bow/bkg0' + item + '.jpg");'});
 	}, 5000);
 
-	var brand_top = $('.brand').offset().top;
-	var brand_height = $('.brand').height();
-	var menu_top = $('.menu').offset().top;
-	var brand_position = (menu_top - (brand_height / 2) - 15);
-	$('.brand').css({'top': brand_position});
+	// var brand_top = $('.brand').offset().top;
+	// var brand_height = $('.brand').height();
+	// var menu_top = $('.menu').offset().top;
+	// var brand_position = (menu_top - (brand_height / 2) - 15);
+	// $('.brand').css({'top': brand_position});
 
 	$(window).click(function(e) {
 		// close menu if click outside
@@ -209,42 +209,41 @@ $(document).ready(function() {
 
 	/******************************************************/
 	/* Open/close menu f-menu_switch **********************/
-	var brand_top = $('.brand').offset().top;
+	// var brand_top = $('.brand').offset().top;
 	var menu_status = 'on';
 	// menu switch function
 	function menu_switch(state) {
 
 		if ( menu_status == 'on' || (state == 'off')) {
-			TweenMax.set('.brand', {opacity: 1, scale: 1, top: brand_top});
-			TweenMax.to('.brand', 0.3, {opacity: 0, scale: 0.5, display: "none", top: "0%", ease: Expo.easeIn });
+			// TweenMax.set('.brand', {opacity: 1, scale: 1, top: brand_top});
+			// TweenMax.to('.brand', 0.3, {opacity: 0, scale: 0.5, display: "none", top: "0%", ease: Expo.easeIn });
 
-			TweenMax.set('.menu', {opacity: 1, scale: 1, top: "22%"});
-			TweenMax.to('.menu', 0.1, {boxShadow: "0 0 0 #000", ease: Expo.easeIn});
+			// TweenMax.set('.menu', {opacity: 1, scale: 1, top: "22%"});
+			// TweenMax.to('.menu', 0.1, {boxShadow: "0 0 0 #000", ease: Expo.easeIn});
 
-			TweenMax.set('.menu-left', {opacity: 1, scale: 1, css:{position: 'relative', left: '0%'}});
-			TweenMax.to('.menu-left', 0.38, {delay:0.2, opacity: 1, scale: 0.5, css:{position: 'relative', left: '20%'}, ease: Expo.easeOut});
+			// TweenMax.set('.menu-left', {opacity: 1, scale: 1, css:{position: 'relative', left: '0%'}});
+			// TweenMax.to('.menu-left', 0.38, {delay:0.2, opacity: 1, scale: 0.5, css:{position: 'relative', left: '20%'}, ease: Expo.easeOut});
 
-			TweenMax.set('.menu-right', {opacity: 1, scale: 1, css:{position: 'relative', left: '0%'}});
-			TweenMax.to('.menu-right', 0.3, {delay:0.2, opacity: 1, scale: 0.5, css:{position: 'relative', left: '-35%'}, ease: Expo.easeOut});
+			// TweenMax.set('.menu-right', {opacity: 1, scale: 1, css:{position: 'relative', left: '0%'}});
+			// TweenMax.to('.menu-right', 0.3, {delay:0.2, opacity: 1, scale: 0.5, css:{position: 'relative', left: '-35%'}, ease: Expo.easeOut});
 
-			TweenMax.to('.menu', 0.4, {delay:0.2, opacity: 0, className: '-=menu-on', scale: 0.5, top: "110%", ease: Expo.easeIn });
+			TweenMax.to('.menu', 0.4, {delay:0.2, opacity: 0, className: '-=menu-on', ease: Expo.easeIn });
 
 			menu_status = 'off';
 		}
 		else { //open menu
 			user_stats();
-			TweenMax.set('.brand', {delay: 0.9, opacity:1, scale: 0.5, top: "20%", display: "block",});
-			TweenMax.to('.brand', 1, {delay: 0.9, top: brand_top, opacity: 1, scale: 1, ease: Elastic.easeOut.config(1, 1), force3D: true });
+			// TweenMax.set('.brand', {delay: 0.9, opacity:1, scale: 0.5, top: "20%", display: "block",});
+			// TweenMax.to('.brand', 1, {delay: 0.9, top: brand_top, opacity: 1, scale: 1, ease: Elastic.easeOut.config(1, 1), force3D: true });
 
-			TweenMax.set('.menu', {opacity:1, scale: 0.5, className: '+=menu-on', top: "110%"});
-			TweenMax.to('.menu', 0.7, {top: "22%", opacity: 1, scale: 1, ease: Elastic.easeOut.config(1, 0.75), force3D: true });
-			TweenMax.to('.menu', 0.3, {delay: 0.84, boxShadow: "0 3px 140px #000", ease: Expo.easeOut});
+			TweenMax.to('.menu', 0.7, {opacity: 1, className: '+=menu-on', ease: Expo.easeOut});
+			// TweenMax.to('.menu', 0.3, {delay: 0.84, boxShadow: "0 3px 140px #000", ease: Expo.easeOut});
 
-			TweenMax.set('.menu-left', {delay: 0.3, opacity: 1, scale: 0.5, css:{position: 'relative', left: '22%'}});
-			TweenMax.to('.menu-left', 0.5, {delay: 0.38, opacity: 1, scale: 1, css:{position: 'relative', left: '0%'}, ease: Expo.easeOut});
+			// TweenMax.set('.menu-left', {delay: 0.3, opacity: 1, scale: 0.5, css:{position: 'relative', left: '22%'}});
+			// TweenMax.to('.menu-left', 0.5, {delay: 0.38, opacity: 1, scale: 1, css:{position: 'relative', left: '0%'}, ease: Expo.easeOut});
 
-			TweenMax.set('.menu-right', {delay: 0.26, opacity: 1, scale: 0.5, css:{position: 'relative', left: '-35%'}});
-			TweenMax.to('.menu-right', 0.5, {delay: 0.26, opacity: 1, scale: 1, css:{position: 'relative', left: '0%'}, ease: Expo.easeOut});
+			// TweenMax.set('.menu-right', {delay: 0.26, opacity: 1, scale: 0.5, css:{position: 'relative', left: '-35%'}});
+			// TweenMax.to('.menu-right', 0.5, {delay: 0.26, opacity: 1, scale: 1, css:{position: 'relative', left: '0%'}, ease: Expo.easeOut});
 
 			menu_status = 'on';
 		}
@@ -288,7 +287,9 @@ $(document).ready(function() {
 
 	// function that manage the center of the menu
 	function menu_manager(kard) {
-
+$('.menu-left').addClass('micro');
+		TweenMax.to('.menu-overlay', 0.3, {delay: 0, opacity: 0, ease: Sine.easeOut, });
+		TweenMax.to('.menu-overlay', 0, {delay: 0.3, css: {'display': 'none'}, });
 		// if menu is not open
 		if (menu_status == 'off') { menu_switch('on');};
 
@@ -347,6 +348,39 @@ $(document).ready(function() {
 		}
 	}
 
+
+	$('.menu-left.micro').mouseenter(function() {
+		$('.menu-left').removeClass('micro');
+		TweenMax.to('.menu-overlay', 0, {delay: 0, css: {'display': 'block'}, });
+		TweenMax.to('.menu-overlay', 0.5, {delay: 0.1, opacity: 1, ease: Sine.easeOut, });
+	});
+	$('.menu-left').mouseleave(function() {
+		$('.menu-left').addClass('micro');
+		TweenMax.to('.menu-overlay', 0.3, {delay: 0, opacity: 0, ease: Sine.easeOut, });
+		TweenMax.to('.menu-overlay', 0, {delay: 0.3, css: {'display': 'none'}, });
+	});
+
+/************************************************************/
+	/* Preloader screen *****************************************/
+	
+	function moveProgressBar() {
+		setTimeout(function() {
+			$('.progress-bar').stop().animate({
+				width: '100%'
+			}, 2500);			
+		}, 1000);
+    }
+    moveProgressBar();
+
+TweenMax.to('.s-preloader .logo', 1, {delay: 0.5, opacity: 1, marginTop: '0px', ease: Sine.easeOut, });
+TweenMax.to('.s-preloader .welcome', 1, {delay: 0.7, opacity: 1, marginTop: '0px', ease: Sine.easeOut, });
+TweenMax.to('.s-preloader .progress-wrap', 1, {delay: 0.9, opacity: 1, ease: Sine.easeOut, });
+
+TweenMax.to('.s-preloader .logo', 1, {delay: 4, opacity: 0, marginTop: '10px', ease: Sine.easeOut, });
+TweenMax.to('.s-preloader .welcome', 1, {delay: 4, opacity: 0, marginTop: '10px', ease: Sine.easeOut, });
+TweenMax.to('.s-preloader .progress-wrap', 1, {delay: 4, opacity: 0, ease: Sine.easeOut, });
+TweenMax.to('.s-preloader', 1, {delay: 5, opacity: 0, ease: Sine.easeOut, });
+TweenMax.to('.s-preloader', 0, {delay: 6, css: {'display': 'none'}, });
 
 	/************************************************************/
 	/* New user register ****************************************/
@@ -801,10 +835,10 @@ $(document).ready(function() {
 						else {
 							row += '<td><a class="view_usermame"><i class="fas fa-circle"></i> <span>' + feedback.leaderboard[i]['username'] + '</span></a></td>';
 						};
-						row += '<td>' + feedback.leaderboard[i]['won'] + '</td>';
-						row += '<td>' + feedback.leaderboard[i]['lose'] + '</td>';
+						// row += '<td>' + feedback.leaderboard[i]['won'] + '</td>';
+						// row += '<td>' + feedback.leaderboard[i]['lose'] + '</td>';
 						// row += '<td>' + feedback.leaderboard[i]['spawn'] + '</td>';
-						row += '<td>' + feedback.leaderboard[i]['spawns'] + '</td>';
+						// row += '<td>' + feedback.leaderboard[i]['spawns'] + '</td>';
 
 						if (feedback.leaderboard[i]['difference'] < 0) {
 							row += '<td><i class="fas fa-arrow-down x-color-one"></i> ' + (feedback.leaderboard[i]['difference'] * -1) + '</td>';
@@ -1577,12 +1611,6 @@ $(document).ready(function() {
 
 			var row = '';
 			row += '<tr>';
-			row += '<td><b>Enemies killed</b></td>';
-			row += '<td>' + feedback.user.won + '</td>';
-			row += '</tr><tr>';
-			row += '<td><b>Deaths</b></td>';
-			row += '<td>' + feedback.user.lose + '</td>';
-			row += '</tr><tr>';
 			row += '<td><b>Profits</b></td>';
 			row += '<td>' + feedback.user.difference + '</td>';
 			row += '</tr><tr>';
@@ -1591,23 +1619,22 @@ $(document).ready(function() {
 			row += '</tr><tr>';
 			row += '<td><b>Pending received balance</b></td>';
 			row += '<td>' + feedback.user.pending_received_balance + '</td>';
-			row += '</tr><tr>';
-			row += '<td><b>Spawns</b></td>';
-			row += '<td>' + feedback.user.spawns + '</td>';
-			row += '</tr><tr>';
-			row += '<td><b>Condition</b></td>';
-			row += '<td>' + feedback.user.condicion + '</td>';
-			row += '</tr><tr>';
-			row += '<td><b>Personal address:</b></td>';
-			row += '<td>' + feedback.user.address + '</td>';
-			row += '</tr><tr>';
-			row += '<td><b>User since:</b></td>';
-			row += '<td>' + feedback.user.creacion + '</td>';
 			row += '</tr>';
 
 			//enviamos la información hacia la tabla user overview
 			$('#user_statistics').html(row);
-			// $('#user-overview .fa-spinner').remove();
+			
+			var row2 = '';
+			row2 += '<tr>';
+			row2 += '<td><b>Personal address:</b></td>';
+			row2 += '<td>' + feedback.user.address + '</td>';
+			row2 += '</tr><tr>';
+			row2 += '<td><b>User since:</b></td>';
+			row2 += '<td>' + feedback.user.creacion + '</td>';
+			row2 += '</tr>';
+
+			//enviamos la información hacia la tabla user profile
+			$('#user_numbers').html(row2);			
 		})
 	}
 
@@ -1632,6 +1659,7 @@ $(document).ready(function() {
 			if ($('.user-spawns').text != feedback.user.spawns ) { $('.user-spawns').text(feedback.user.spawns); }
 			if ($('.user-balance').text != feedback.user.available_balance ) { $('.user-balance').text(feedback.user.available_balance); }
 			if ($('.user-profit').text != feedback.user.difference ) { $('.user-profit').text(feedback.user.difference); }
+			if ($('.pending-received-balance').text != feedback.user.pending_received_balance ) { $('.pending-received-balance').text(feedback.user.pending_received_balance); }
 			console.log(feedback);
 		//populamos la tabla
 		if (feedback.xfers) {
@@ -1817,7 +1845,7 @@ $(document).ready(function() {
 		previa.open();
 		$('#canvas-container').css({'display': 'none'});
 		$('body').removeClass('playing');
-		$('.brand').css({'display': 'block'});
+		// $('.brand').css({'display': 'block'});
 		KilledSequence(null, 'respawn');
 		$('#canvas').css({ 'filter': 'grayscale(0%) contrast(100%)','-webkit-filter': 'grayscale(0%) contrast(100%)'});
 		$('.btn-respawn').css({'display': 'inline-block'});
