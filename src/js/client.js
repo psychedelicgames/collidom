@@ -31,7 +31,7 @@ $(document).ready(function() {
 	sound_menu_ambient.preLoad = true;
 	sound_menu_ambient.controls = false;
 
-	sound_menu_ambient.play();
+	// sound_menu_ambient.play();
 
 	//sound menu click
 	var sound_menu_click = document.createElement("audio");
@@ -1185,25 +1185,30 @@ TweenMax.to('.s-preloader', 0, {delay: 6, css: {'display': 'none'}, });
 
 		function playing_footer() {
 
-			//esperamos la presencia de game
-			if (game['self']) {
+				//esperamos la presencia de game
+				if (game['self']) {
 				//clonamos gameself para referenciarlo más rápido
 				var playing_info = game['self'];
 
 				//solo cambiar la información si no hay información, o si la información es nueva.
-				if ($('.user-name').text == null || $('.user-name').text != playing_info.name) { $('.user-name').text(playing_info.name); }
+				if ($('.user-name').text() == null || $('.user-name').text() != playing_info.name) { $('.user-name').text(playing_info.name); }
+
 				var kills = $('.user-kills').text;
-				console.log(kills.text);
-				if ($('.user-name').text != playing_info.name ) { $('.user-name').text(playing_info.name); }
-				// if (kills.text !== playing_info.kills ) { console.log('vamos'); kills.text(playing_info.kills); }
-				if ($('.user-deaths').text != playing_info.deaths ) { $('.user-deaths').text(playing_info.deaths); }
-				if ($('.user-spawns').text != playing_info.spawns ) { $('.user-spawns').text(playing_info.spawns); }
-				if ($('.user-balance').text != playing_info.balance ) { $('.user-balance').text(playing_info.balance); }
-				$('.user-name').text(playing_info.name);
-				$('.user-kills').text(playing_info.kills);
-				$('.user-deaths').text(playing_info.deaths);
-				$('.user-spawns').text(playing_info.spawns);
-				$('.user-balance').text(playing_info.balance);
+
+				var actualBalance = parseFloat(
+			        $('.user-balance').text()
+			    ).toFixed(2);
+
+				if ($('.user-name').text() != playing_info.name ) { $('.user-name').text(playing_info.name); }
+				if ($('.user-deaths').text() != playing_info.deaths ) { $('.user-deaths').text(playing_info.deaths); }
+				if ($('.user-spawns').text() != playing_info.spawns ) { $('.user-spawns').text(playing_info.spawns); }
+				if (actualBalance != playing_info.balance ) { 
+					// coin sound
+					if (actualBalance < playing_info.balance) { sound_coins(); };
+					// update balance
+					$('.user-balance').text(playing_info.balance);
+				}
+				
 			}
 		}
 
@@ -1324,7 +1329,7 @@ TweenMax.to('.s-preloader', 0, {delay: 6, css: {'display': 'none'}, });
 				sound_menu_ambient.pause();
 			}
 			else {
-				sound_menu_ambient.play();
+				// sound_menu_ambient.play();
 			}
 		}
 		else if (Cookies('music_menu') == 'off'){
